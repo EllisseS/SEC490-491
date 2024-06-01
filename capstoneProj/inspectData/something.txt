@@ -1,0 +1,50 @@
+Starting Nmap 7.91 ( https://nmap.org ) at 2024-05-14 10:00 EDT
+Nmap scan report for target.example.com (192.168.1.100)
+Host is up (0.0030s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 b9:3d:26:d2:74:47:ea:05:52:ff:32:18:ab:fd:51:5a (RSA)
+|   256 38:bc:10:3f:0b:4b:bd:26:55:24:83:c5:71:12:6c:31 (ECDSA)
+|_  256 0e:fc:ef:5a:bb:26:31:c1:55:9e:3c:84:4a:46:a9:1c (ED25519)
+80/tcp   open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+443/tcp  open  https   Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_ssl-date: 2024-05-14T14:05:47+00:00; +1h11m28s from scanner time.
+|_sslv2: server still supports SSLv2
+|_sslv3: server still supports SSLv3
+| ssl-cert: Subject: commonName=target.example.com
+| Not valid before: 2024-01-01T00:00:00
+|_Not valid after:  2025-01-01T23:59:59
+|_ssl-date: 2024-05-14T14:05:47+00:00; +1h11m28s from scanner time.
+| tls-alpn:
+|   http/1.1
+|   h2
+|_  spdy/3.1
+10000/tcp open  http    MiniServ 1.973 (Webmin httpd)
+|_http-server-header: MiniServ/1.973
+|_http-title: Site doesn't have a title (text/html; Charset=iso-8859-1).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+Host script results:
+| smb-os-discovery:
+|   OS: Windows 10 Enterprise 15063 (Windows 10 Enterprise 0.0)
+|   Computer name: target
+|   NetBIOS computer name: TARGET\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2024-05-14T10:04:17-04:00
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: required
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2024-05-14T14:04:18
+|_  start_date: 2024-05-14T14:04:18
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 25.60 seconds

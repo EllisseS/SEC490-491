@@ -1,0 +1,4 @@
+IP,FQDN,PORT,PROTOCOL,SERVICE,VERSION,OS
+192.168.1.2,Test.lan,135,tcp,msrpc,Microsoft Windows RPC,Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+192.168.1.2,Test.lan,139,tcp,netbios-ssn,,Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+192.168.1.2,Test.lan,445,tcp,netbios-ssn,,Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
