@@ -3,7 +3,7 @@ EXPOSE 8080
 
 ADD v2.py  ./app/newProg.py
 COPY requirements.txt requirements.txt
-COPY inspectData/example.csv inspectData/testfile.txt
+COPY inspectData/testfile.txt .app/inspectData/testfile.txt
 RUN pip3 install -r requirements.txt 
 RUN apt-get update &&  apt-get install -y \
 	build-essential \
