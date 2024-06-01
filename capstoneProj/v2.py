@@ -88,12 +88,4 @@ if st.session_state.messages[-1]["role"] != "assistant":
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message) # Add response to message history
-@st.cache_data
-def when_refreshed():
-    file_path  = "/app/inspectData"
-    for cfile in glob.glob(file_path + "/*.csv"):
-        os.remove(cfile)
-    for tfile in glob.glob(file_path + "/*.txt"):
-        os.remove(tfile)
-if st.button("Restart"):
-    when_refreshed()
+
