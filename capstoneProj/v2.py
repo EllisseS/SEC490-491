@@ -12,7 +12,7 @@ except ImportError:
 
 st.set_page_config(page_title="CyberSec Assistant", page_icon="🦙", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = "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"
-st.title("Chat with the Streamlit docs, powered by LlamaIndex 💬🦙")
+st.title("CyberSec Assistant 💬🦙")
 
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [
