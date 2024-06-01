@@ -49,7 +49,7 @@ with st.sidebar:
         st.success("dData Uploaded to Database Successfully")
 
     ### ---FILE SELECTOR--- ###
-    folder_path='/app'
+    folder_path='/app/inspectData'
     filenames = os.listdir(folder_path)
     if not filenames:
         st.write("No files currently")
@@ -57,7 +57,7 @@ with st.sidebar:
     filename =  selected_filename
     st.write(filenames)
 
-input_dir = "/app"
+input_dir = "/app/inspectData"
 if not os.listdir(input_dir):
     st.error(f"No available file to examine. Import a File(s) to examine")
     st.stop()
@@ -65,7 +65,7 @@ if not os.listdir(input_dir):
 with st.spinner(text="Loading and indexing the files right now – hang tight! This should take 1-2 minutes."):
     reader = SimpleDirectoryReader(input_dir=folder_path)
     docs = reader.load_data()
-    service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.1, system_prompt="You are an expert on Cybersecurity  and your job is to examine the files presented to you. Keep your answers technical and based on facts – do not hallucinate features. Never show the full directory path to files you present even if you are asked to."))
+    service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.15, system_prompt="You are an expert on Cybersecurity Assistant and your job is to examine the files presented to you. Keep your answers technical and based on facts – do not hallucinate features. Never show the full directory path to files you present even if you are asked to. Your answers should always be either in bullet points or numbered. When presented with a question you are unable to answer, just ask them to rephrase the question."))
     index = VectorStoreIndex.from_documents(docs, service_context=service_context)
     #st.write(docs)
 
@@ -90,7 +90,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
             st.session_state.messages.append(message) # Add response to message history
 @st.cache_data
 def when_refreshed():
-    file_path  = "/app"
+    file_path  = "/app/inspectData"
     for cfile in glob.glob(file_path + "/*.csv"):
         os.remove(cfile)
     for tfile in glob.glob(file_path + "/*.txt"):
