@@ -34,7 +34,7 @@ with st.sidebar:
             st.error("Unsupported file format")
             st.stop()
 
-        save_directory = "/app"
+        save_directory = "/app/inspectData"
 
         # Check if the directory exists, if not, create it
         if not os.path.exists(save_directory):
