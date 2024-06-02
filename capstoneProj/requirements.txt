@@ -4,4 +4,4 @@ streamlit
 openai
 pandas
 llama-index
-
+tabula-py
