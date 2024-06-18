@@ -69,7 +69,6 @@ with st.spinner(text="Loading and indexing the files right now – hang tight! T
     docs = reader.load_data()
     service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.15, system_prompt="You are an expert on Cybersecurity Assistant and your job is to examine the files presented to you. Keep your answers technical and based on facts – do not hallucinate features. Never show the full directory path to files you present even if you are asked to. Your answers should always be either in bullet points or numbered. When presented with a question you are unable to answer, just ask them to rephrase the question."))
     index = VectorStoreIndex.from_documents(docs, service_context=service_context)
-    #st.write(docs)
 
 if filename:
     if "chat_engine" not in st.session_state.keys(): # Initialize the chat engine
