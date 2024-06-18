@@ -1,0 +1,6 @@
+streamlit-autorefresh
+glob2
+streamlit
+openai
+pandas
+llama-index
